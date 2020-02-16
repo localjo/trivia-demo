@@ -1,8 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, useParams } from 'react-router-dom';
 import { partition, isNil } from 'lodash';
-import Question from './Question';
+import ReactHtmlParser from 'react-html-parser';
+import { submitAnswer } from '../redux/actions';
 import { IQuestion, IAppState } from '../types';
 
 interface RouteParams {
@@ -10,35 +11,35 @@ interface RouteParams {
 }
 
 const Quiz = () => {
+  const dispatch = useDispatch();
   const { questionIndex } = useParams<RouteParams>();
   const questions: IQuestion[] = useSelector((state: IAppState) => {
     return state.questions;
   });
   const total = questions.length;
-  const [answered, unanswered] = partition(
-    questions,
-    q => !isNil(q.is_correct)
-  );
+  const [answered] = partition(questions, q => !isNil(q.is_correct));
   const isFinished = answered.length === total;
   if (isFinished) return <Redirect to="/results" />;
   const isCurrentQuestion = +questionIndex === answered.length + 1;
   if (!isCurrentQuestion) {
     return <Redirect to={`/quiz/${answered.length + 1}`} />;
   }
-  const [correct] = partition(questions, q => q.is_correct === true);
   const current: IQuestion = questions[+questionIndex - 1];
   if (!current)
     return (
       <p>Oops, the question failed to load! Reload the quiz to try again.</p>
     );
+  const answerQuestion = (answer: boolean) => {
+    dispatch(submitAnswer(answer, current.question));
+  };
   return (
     <>
+      <h1>{current.category}</h1>
+      {ReactHtmlParser(current.question)}
+      <button onClick={() => answerQuestion(true)}>True</button>
+      <button onClick={() => answerQuestion(false)}>False</button>
       <p>
-        Answered: {answered.length}/{unanswered.length}
-      </p>
-      <Question {...current} />
-      <p>
-        Correct: {correct.length || 0}/{total}
+        {questionIndex} of {total}
       </p>
     </>
   );
