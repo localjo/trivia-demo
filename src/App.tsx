@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { addQuestions, setStatus } from './redux/actions';
-import './App.css';
 import Intro from './components/Intro';
 import Quiz from './components/Quiz';
 import Results from './components/Results';

@@ -26,8 +26,11 @@ const Results = () => {
       </h1>
       <ul>
         {questions.map(q => {
+          const style = {
+            color: q.is_correct ? 'green' : 'red',
+          };
           return (
-            <li key={q.question} className={q.is_correct ? 'correct' : ''}>
+            <li key={q.question} style={style}>
               {ReactHtmlParser(q.question)}
             </li>
           );

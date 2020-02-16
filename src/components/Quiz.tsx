@@ -35,7 +35,7 @@ const Quiz = () => {
   return (
     <>
       <h1>{current.category}</h1>
-      {ReactHtmlParser(current.question)}
+      <p>{ReactHtmlParser(current.question)}</p>
       <button onClick={() => answerQuestion(true)}>True</button>
       <button onClick={() => answerQuestion(false)}>False</button>
       <p>
