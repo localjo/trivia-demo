@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Results from '../components/Results';
+import Intro from '../Intro';
 
 configure({ adapter: new Adapter() });
 
@@ -18,15 +18,15 @@ jest.mock('react-router', () => ({
   },
 }));
 
-describe('<Results />', () => {
+describe('<Intro />', () => {
   it('Expect to not log errors in console', () => {
     const spy = jest.spyOn(global.console, 'error');
-    const wrapper = shallow(<Results />);
+    const wrapper = shallow(<Intro />);
     expect(wrapper).not.toBeNull();
     expect(spy).not.toHaveBeenCalled();
   });
   it('Should render and match the snapshot', () => {
-    const wrapper = shallow(<Results />);
+    const wrapper = shallow(<Intro />);
     expect(wrapper).toMatchSnapshot();
   });
 });
