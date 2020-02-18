@@ -20,15 +20,11 @@ const QuestionCard = ({ question, answerQuestion }: IQuestionCard) => {
       <CardContent>
         <Box
           py="0.4em"
-          style={{
-            minHeight: '160px',
-          }}
           display={'flex'}
           flexDirection={'column'}
           alignItems={'center'}
           justifyContent={'center'}
-          minHeight={360}
-          color={'common.white'}
+          minHeight={160}
           textAlign={'center'}
         >
           <Typography variant="h5" component="p">
