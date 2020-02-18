@@ -34,6 +34,11 @@ const App = () => {
         default: '#1E1E1E',
       },
     },
+    typography: {
+      fontFamily: ['Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'].join(
+        ','
+      ),
+    },
     overrides: {
       MuiTypography: {
         h4: {
