@@ -5,6 +5,7 @@ import { partition, isNil } from 'lodash';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import { IAppState, IStatus, IQuestion } from '../types';
 import { setStatus } from '../redux/actions';
 
@@ -40,6 +41,7 @@ const Intro = () => {
         color="primary"
         size="large"
         onClick={() => history.push('/quiz/1')}
+        endIcon={<PlayCircleFilledIcon />}
       >
         Begin
       </Button>

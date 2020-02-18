@@ -14,6 +14,7 @@ import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
+import ReplayIcon from '@material-ui/icons/Replay';
 
 import { IQuestion, IAppState } from '../types';
 
@@ -35,7 +36,10 @@ const Results = () => {
         You scored {correct.length} / {total}
       </Typography>
       <Box py="3em">
-        <Card>
+        <Card
+          variant="outlined"
+          style={{ maxWidth: '600px', margin: '0 auto' }}
+        >
           <CardContent>
             <List>
               {questions.map(q => {
@@ -67,6 +71,7 @@ const Results = () => {
         color="primary"
         size="large"
         onClick={() => history.push('/')}
+        endIcon={<ReplayIcon />}
       >
         Play again?
       </Button>

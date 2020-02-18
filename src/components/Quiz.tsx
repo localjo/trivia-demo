@@ -4,6 +4,7 @@ import { Redirect, useParams } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Box from '@material-ui/core/Box';
+import CategoryIcon from '@material-ui/icons/Category';
 import { partition, isNil } from 'lodash';
 import { submitAnswer } from '../redux/actions';
 import { IQuestion, IAppState } from '../types';
@@ -46,7 +47,7 @@ const Quiz = () => {
         style={{ position: 'fixed', top: 0, left: 0, right: 0 }}
       />
       <Typography variant="h4" component="h2">
-        {category}
+        <CategoryIcon /> {category}
       </Typography>
       <Box py="1em">
         <QuestionCard question={question} answerQuestion={answerQuestion} />
