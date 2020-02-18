@@ -30,6 +30,13 @@ const App = () => {
         main: '#2D7FF9', // G2i Blue
       },
     },
+    overrides: {
+      MuiTypography: {
+        h4: {
+          minHeight: '2.4em',
+        },
+      },
+    },
   });
   theme = responsiveFontSizes(theme);
   async function fetchData() {

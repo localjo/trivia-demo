@@ -17,9 +17,9 @@ const QuestionCard = ({ question, answerQuestion }: IQuestionCard) => {
     <Card variant="outlined">
       <CardContent>
         <Box
-          py="2em"
+          py="0.4em"
           style={{
-            minHeight: '140px',
+            minHeight: '160px',
           }}
         >
           <Typography variant="h5" component="p">

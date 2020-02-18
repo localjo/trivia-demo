@@ -34,7 +34,7 @@ const Intro = () => {
       <Typography variant="h4" component="p">
         Can you score 100%?
       </Typography>
-      <Box py="3em" />
+      <Box py="1em" />
       <Button
         variant="contained"
         color="primary"

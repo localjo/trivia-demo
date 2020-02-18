@@ -48,7 +48,7 @@ const Quiz = () => {
       <Typography variant="h4" component="h2">
         {category}
       </Typography>
-      <Box py="3em">
+      <Box py="1em">
         <QuestionCard question={question} answerQuestion={answerQuestion} />
       </Box>
       <QuizProgress completed={index} total={total} />
