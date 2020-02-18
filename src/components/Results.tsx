@@ -41,7 +41,7 @@ const Results = () => {
           style={{ maxWidth: '600px', margin: '0 auto' }}
         >
           <CardContent>
-            <List>
+            <List dense>
               {questions.map(q => {
                 const tip: string = !q.is_correct
                   ? `The correct answer was ${q.correct_answer}.`
