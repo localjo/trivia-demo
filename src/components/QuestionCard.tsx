@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
+import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
@@ -16,15 +16,34 @@ const QuestionCard = ({ question, answerQuestion }: IQuestionCard) => {
   return (
     <Card variant="outlined">
       <CardContent>
-        <Box py="2em">
+        <Box
+          py="2em"
+          style={{
+            minHeight: '140px',
+          }}
+        >
           <Typography variant="h5" component="p">
             {ReactHtmlParser(question)}
           </Typography>
         </Box>
-        <ButtonGroup variant="contained" color="secondary" size="large">
-          <Button onClick={() => answerQuestion(true)}>True</Button>
-          <Button onClick={() => answerQuestion(false)}>False</Button>
-        </ButtonGroup>
+        <CardActions style={{ display: 'block' }}>
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={() => answerQuestion(true)}
+          >
+            True
+          </Button>
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={() => answerQuestion(false)}
+          >
+            False
+          </Button>
+        </CardActions>
       </CardContent>
     </Card>
   );

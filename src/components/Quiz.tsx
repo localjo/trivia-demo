@@ -8,6 +8,7 @@ import { partition, isNil } from 'lodash';
 import { submitAnswer } from '../redux/actions';
 import { IQuestion, IAppState } from '../types';
 import QuestionCard from './QuestionCard';
+import QuizProgress from './QuizProgress';
 
 interface RouteParams {
   questionIndex: string;
@@ -20,10 +21,10 @@ const Quiz = () => {
   const questions: IQuestion[] = useSelector((state: IAppState) => {
     return state.questions;
   });
-  const total = questions.length;
+  const total: number = questions.length;
   const [answered] = partition(questions, q => !isNil(q.is_correct));
-  const isFinished = answered.length === total;
-  if (isFinished) return <Redirect to="/results" />;
+  const percentComplete: number = ((index - 1) / total) * 100;
+  if (percentComplete >= 100) return <Redirect to="/results" />;
   const isCurrentQuestion = index === answered.length + 1;
   if (!isCurrentQuestion) {
     return <Redirect to={`/quiz/${answered.length + 1}`} />;
@@ -40,7 +41,7 @@ const Quiz = () => {
     <>
       <LinearProgress
         variant="determinate"
-        value={((index - 1) / total) * 100}
+        value={percentComplete}
         color="secondary"
         style={{ position: 'fixed', top: 0, left: 0, right: 0 }}
       />
@@ -50,9 +51,7 @@ const Quiz = () => {
       <Box py="3em">
         <QuestionCard question={question} answerQuestion={answerQuestion} />
       </Box>
-      <Typography variant="body1" component="p">
-        {questionIndex} of {total}
-      </Typography>
+      <QuizProgress completed={index} total={total} />
     </>
   );
 };
