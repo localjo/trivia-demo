@@ -10,6 +10,8 @@ import {
   createMuiTheme,
   responsiveFontSizes,
 } from '@material-ui/core/styles';
+import Particles from 'react-particles-js';
+import particlesConfig from './particlesjs-config.json';
 import { addQuestions, setStatus } from './redux/actions';
 import Intro from './components/Intro';
 import Quiz from './components/Quiz';
@@ -64,28 +66,30 @@ const App = () => {
     fetchData();
   });
   return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Container fixed>
-          <Box textAlign="center" marginTop="3em">
-            <Router>
-              <Switch>
-                <Route path="/quiz/:questionIndex">
-                  {status === IStatus.LOADED ? (
-                    <Quiz />
-                  ) : (
-                    <CircularProgress color="primary" />
-                  )}
-                </Route>
-                <Route path="/results" component={Results} />
-                <Route path="/" component={Intro} />
-              </Switch>
-            </Router>
-          </Box>
-        </Container>
-      </ThemeProvider>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Particles
+        params={particlesConfig as any}
+        style={{ position: 'absolute' }}
+      />
+      <Container fixed>
+        <Box textAlign="center" marginTop="3em">
+          <Router>
+            <Switch>
+              <Route path="/quiz/:questionIndex">
+                {status === IStatus.LOADED ? (
+                  <Quiz />
+                ) : (
+                  <CircularProgress color="primary" />
+                )}
+              </Route>
+              <Route path="/results" component={Results} />
+              <Route path="/" component={Intro} />
+            </Switch>
+          </Router>
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 };
 
