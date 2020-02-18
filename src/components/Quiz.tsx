@@ -40,12 +40,6 @@ const Quiz = () => {
   };
   return (
     <>
-      <LinearProgress
-        variant="determinate"
-        value={percentComplete}
-        color="primary"
-        style={{ position: 'fixed', top: 0, left: 0, right: 0 }}
-      />
       <Typography variant="h4" component="h2">
         <CategoryIcon /> {category}
       </Typography>
@@ -53,6 +47,12 @@ const Quiz = () => {
         <QuestionCard question={question} answerQuestion={answerQuestion} />
       </Box>
       <QuizProgress completed={index} total={total} />
+      <LinearProgress
+        variant="determinate"
+        value={percentComplete}
+        color="primary"
+        style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '1px' }}
+      />
     </>
   );
 };
