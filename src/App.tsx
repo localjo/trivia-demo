@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import {
   ThemeProvider,
   createMuiTheme,
@@ -58,7 +59,7 @@ const App = () => {
                   {status === IStatus.LOADED ? (
                     <Quiz />
                   ) : (
-                    <p>{IStatus[status]}</p>
+                    <CircularProgress color="secondary" />
                   )}
                 </Route>
                 <Route path="/results" component={Results} />
