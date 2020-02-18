@@ -1,6 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, useParams } from 'react-router-dom';
+import Typography from '@material-ui/core/Typography';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import Box from '@material-ui/core/Box';
 import { partition, isNil } from 'lodash';
 import { submitAnswer } from '../redux/actions';
 import { IQuestion, IAppState } from '../types';
@@ -13,6 +16,7 @@ interface RouteParams {
 const Quiz = () => {
   const dispatch = useDispatch();
   const { questionIndex } = useParams<RouteParams>();
+  const index: number = +questionIndex;
   const questions: IQuestion[] = useSelector((state: IAppState) => {
     return state.questions;
   });
@@ -20,7 +24,7 @@ const Quiz = () => {
   const [answered] = partition(questions, q => !isNil(q.is_correct));
   const isFinished = answered.length === total;
   if (isFinished) return <Redirect to="/results" />;
-  const isCurrentQuestion = +questionIndex === answered.length + 1;
+  const isCurrentQuestion = index === answered.length + 1;
   if (!isCurrentQuestion) {
     return <Redirect to={`/quiz/${answered.length + 1}`} />;
   }
@@ -34,11 +38,21 @@ const Quiz = () => {
   };
   return (
     <>
-      <h1>{category}</h1>
-      <QuestionCard question={question} answerQuestion={answerQuestion} />
-      <p>
+      <LinearProgress
+        variant="determinate"
+        value={((index - 1) / total) * 100}
+        color="secondary"
+        style={{ position: 'fixed', top: 0, left: 0, right: 0 }}
+      />
+      <Typography variant="h4" component="h2">
+        {category}
+      </Typography>
+      <Box py="3em">
+        <QuestionCard question={question} answerQuestion={answerQuestion} />
+      </Box>
+      <Typography variant="body1" component="p">
         {questionIndex} of {total}
-      </p>
+      </Typography>
     </>
   );
 };

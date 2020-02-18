@@ -16,6 +16,7 @@ jest.mock('react-router', () => ({
   useParams: () => {
     return { questionIndex: '1' };
   },
+  useHistory: () => {},
 }));
 
 describe('<Results />', () => {
