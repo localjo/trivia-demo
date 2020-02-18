@@ -29,7 +29,7 @@ const QuestionCard = ({ question, answerQuestion }: IQuestionCard) => {
         <CardActions style={{ display: 'block' }}>
           <Button
             variant="contained"
-            color="secondary"
+            color="primary"
             size="large"
             onClick={() => answerQuestion(true)}
           >
@@ -37,7 +37,7 @@ const QuestionCard = ({ question, answerQuestion }: IQuestionCard) => {
           </Button>
           <Button
             variant="contained"
-            color="secondary"
+            color="primary"
             size="large"
             onClick={() => answerQuestion(false)}
           >

@@ -46,9 +46,9 @@ const Results = () => {
                   <ListItem key={q.question}>
                     <ListItemIcon>
                       {q.is_correct ? (
-                        <AddCircleIcon color="secondary" />
+                        <AddCircleIcon color="primary" />
                       ) : (
-                        <RemoveCircleIcon color="primary" />
+                        <RemoveCircleIcon color="secondary" />
                       )}
                     </ListItemIcon>
                     <ListItemText

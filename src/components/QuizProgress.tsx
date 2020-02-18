@@ -1,7 +1,7 @@
 import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, darken, useTheme } from '@material-ui/core/styles';
 
 interface IQuestionCard {
   question: string;
@@ -9,6 +9,7 @@ interface IQuestionCard {
 }
 
 const QuizProgress = (props: { completed: number; total: number }) => {
+  const theme = useTheme();
   const percentComplete: number = ((props.completed - 1) / props.total) * 100;
   const useStylesFacebook = makeStyles({
     root: {
@@ -24,7 +25,7 @@ const QuizProgress = (props: { completed: number; total: number }) => {
     bottom: {
       position: 'absolute',
       left: 0,
-      color: 'rgba(0,0,0,0.1)',
+      color: darken(theme.palette.primary.main, 0.5),
     },
     label: { position: 'relative', top: '62px' },
   });
@@ -43,7 +44,7 @@ const QuizProgress = (props: { completed: number; total: number }) => {
       ></CircularProgress>
       <CircularProgress
         variant="static"
-        color="secondary"
+        color="primary"
         className={classes.top}
         value={percentComplete + 5}
         thickness={2}

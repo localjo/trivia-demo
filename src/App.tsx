@@ -23,11 +23,15 @@ const App = () => {
   const dispatch = useDispatch();
   let theme = createMuiTheme({
     palette: {
+      type: 'dark',
       primary: {
-        main: '#E23E2F', // G2i Red
+        main: '#2D7FF9', // G2i Blue
       },
       secondary: {
-        main: '#2D7FF9', // G2i Blue
+        main: '#E23E2F', // G2i Red
+      },
+      background: {
+        default: '#1E1E1E',
       },
     },
     overrides: {
@@ -56,8 +60,8 @@ const App = () => {
   });
   return (
     <div className="App">
-      <CssBaseline />
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <Container fixed>
           <Box textAlign="center" marginTop="3em">
             <Router>
@@ -66,7 +70,7 @@ const App = () => {
                   {status === IStatus.LOADED ? (
                     <Quiz />
                   ) : (
-                    <CircularProgress color="secondary" />
+                    <CircularProgress color="primary" />
                   )}
                 </Route>
                 <Route path="/results" component={Results} />

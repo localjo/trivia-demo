@@ -26,11 +26,11 @@ const Intro = () => {
       <Typography variant="h2" component="h1">
         Welcome to the Triva Challenge!
       </Typography>
-      <Box py="3em" />
+      <Box py="2em" />
       <Typography variant="h4" component="p">
         You will be presented with 10 True or False questions.
       </Typography>
-      <Box py="3em" />
+      <Box py="1em" />
       <Typography variant="h4" component="p">
         Can you score 100%?
       </Typography>

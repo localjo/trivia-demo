@@ -42,7 +42,7 @@ const Quiz = () => {
       <LinearProgress
         variant="determinate"
         value={percentComplete}
-        color="secondary"
+        color="primary"
         style={{ position: 'fixed', top: 0, left: 0, right: 0 }}
       />
       <Typography variant="h4" component="h2">
