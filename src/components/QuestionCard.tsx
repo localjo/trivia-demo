@@ -16,7 +16,11 @@ interface IQuestionCard {
 
 const QuestionCard = ({ question, answerQuestion }: IQuestionCard) => {
   return (
-    <Card variant="outlined" style={{ maxWidth: '600px', margin: '0 auto' }}>
+    <Card
+      className="card"
+      variant="outlined"
+      style={{ maxWidth: '600px', margin: '0 auto' }}
+    >
       <CardContent>
         <Box
           py="0.4em"

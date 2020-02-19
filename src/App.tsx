@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import {
   ThemeProvider,
   createMuiTheme,
@@ -16,6 +15,7 @@ import { addQuestions, setStatus } from './redux/actions';
 import Intro from './components/Intro';
 import Quiz from './components/Quiz';
 import Results from './components/Results';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { IAppState, IStatus } from './types';
 
 const App = () => {
@@ -47,6 +47,11 @@ const App = () => {
           minHeight: '2.4em',
         },
       },
+      MuiCardContent: {
+        root: {
+          padding: '24px',
+        },
+      },
     },
   });
   theme = responsiveFontSizes(theme);
@@ -76,15 +81,15 @@ const App = () => {
         <Box textAlign="center" marginTop="3em">
           <Router>
             <Switch>
-              <Route path="/quiz/:questionIndex">
+              <Route exact path="/" component={Intro} />
+              <Route exact path="/quiz/:questionIndex">
                 {status === IStatus.LOADED ? (
                   <Quiz />
                 ) : (
                   <CircularProgress color="primary" />
                 )}
               </Route>
-              <Route path="/results" component={Results} />
-              <Route path="/" component={Intro} />
+              <Route exact path="/results" component={Results} />
             </Switch>
           </Router>
         </Box>

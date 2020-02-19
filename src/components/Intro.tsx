@@ -25,7 +25,7 @@ const Intro = () => {
   });
   return (
     <>
-      <Typography variant="h4" component="h1">
+      <Typography variant="h4" component="h1" color="primary">
         Welcome to the Triva Challenge!
       </Typography>
       <Box py="1em">
