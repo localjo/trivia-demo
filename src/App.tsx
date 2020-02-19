@@ -86,7 +86,7 @@ const App = () => {
       />
       <Container fixed>
         <Box textAlign="center" marginTop="3em">
-          <Router>
+          <Router basename={`${process.env.PUBLIC_URL}/`}>
             <Switch>
               <Route exact path="/" component={Intro} />
               <Route exact path="/quiz/:questionIndex">
