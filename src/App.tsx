@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core/styles';
 import Particles from 'react-particles-js';
 import particlesConfig from './particlesjs-config.json';
-import { addQuestions, setStatus } from './redux/actions';
+import { addQuestions, setStatus } from './redux';
 import Intro from './components/Intro';
 import Quiz from './components/Quiz';
 import Results from './components/Results';

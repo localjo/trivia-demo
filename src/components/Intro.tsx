@@ -8,7 +8,7 @@ import Box from '@material-ui/core/Box';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import { IAppState, IStatus, IQuestion } from '../types';
-import { setStatus } from '../redux/actions';
+import { setStatus } from '../redux';
 
 const Intro = () => {
   const dispatch = useDispatch();

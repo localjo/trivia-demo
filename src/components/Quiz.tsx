@@ -7,7 +7,7 @@ import Box from '@material-ui/core/Box';
 import CategoryIcon from '@material-ui/icons/Category';
 import { partition, isNil } from 'lodash';
 import { CSSTransition } from 'react-transition-group';
-import { submitAnswer } from '../redux/actions';
+import { submitAnswer } from '../redux';
 import { IQuestion, IAppState } from '../types';
 import QuestionCard from './QuestionCard';
 import QuizProgress from './QuizProgress';
@@ -42,7 +42,7 @@ const Quiz = () => {
       <p>Oops, the question failed to load! Reload the quiz to try again.</p>
     );
   const answerQuestion = (answer: boolean) => {
-    dispatch(submitAnswer(answer, question));
+    dispatch(submitAnswer({ answer, question }));
   };
   return (
     <>
