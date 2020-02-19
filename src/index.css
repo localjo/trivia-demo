@@ -1,7 +1,3 @@
-html {
-  overflow: hidden;
-}
-
 .question {
   position: absolute;
   left: 15px;
@@ -29,21 +25,3 @@ html {
   transform: rotateY( 180deg);
   transition: transform 1s;
 }
-
-/* .question-enter .category {
-  opacity: 0;
-}
-
-.question-enter-active .category {
-  opacity: 1;
-  transition: opacity 300ms;
-}
-
-.question-exit .category {
-  opacity: 1;
-}
-
-.question-exit-active .category {
-  opacity: 0;
-  transition: opacity 300ms;
-} */

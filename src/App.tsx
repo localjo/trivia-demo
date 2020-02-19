@@ -75,7 +75,14 @@ const App = () => {
       <CssBaseline />
       <Particles
         params={particlesConfig as any}
-        style={{ position: 'absolute' }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          overflow: 'hidden',
+        }}
       />
       <Container fixed>
         <Box textAlign="center" marginTop="3em">
