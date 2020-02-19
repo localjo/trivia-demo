@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
-import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
@@ -32,24 +32,22 @@ const QuestionCard = ({ question, answerQuestion }: IQuestionCard) => {
           </Typography>
         </Box>
         <CardActions style={{ display: 'block' }}>
-          <Button
-            variant="contained"
+          <Fab
+            variant="extended"
             color="primary"
-            size="large"
             onClick={() => answerQuestion(true)}
-            startIcon={<ThumbUpIcon />}
           >
-            True
-          </Button>
-          <Button
-            variant="contained"
+            True&nbsp;
+            <ThumbUpIcon />
+          </Fab>{' '}
+          <Fab
+            variant="extended"
             color="primary"
-            size="large"
             onClick={() => answerQuestion(false)}
-            startIcon={<ThumbDownIcon />}
           >
-            False
-          </Button>
+            False&nbsp;
+            <ThumbDownIcon />
+          </Fab>
         </CardActions>
       </CardContent>
     </Card>

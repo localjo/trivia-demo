@@ -12,7 +12,7 @@ import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
 import Box from '@material-ui/core/Box';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import ReplayIcon from '@material-ui/icons/Replay';
@@ -44,9 +44,6 @@ const Results = () => {
           <CardContent>
             <List dense>
               {questions.map(q => {
-                const tip: string = !q.is_correct
-                  ? `The correct answer was ${q.correct_answer}.`
-                  : '';
                 return (
                   <ListItem key={q.question}>
                     <ListItemIcon>
@@ -58,7 +55,7 @@ const Results = () => {
                     </ListItemIcon>
                     <ListItemText
                       primary={ReactHtmlParser(q.question)}
-                      secondary={tip}
+                      secondary={`Correct answer: ${q.correct_answer}.`}
                     />
                   </ListItem>
                 );
@@ -68,15 +65,15 @@ const Results = () => {
         </Card>
       </Box>
       <Box py="2em">
-        <Button
-          variant="contained"
+        <Fab
+          variant="extended"
           color="primary"
           size="large"
           onClick={() => history.push('/')}
-          endIcon={<ReplayIcon />}
         >
-          Play again?
-        </Button>
+          Play again?&nbsp;
+          <ReplayIcon />
+        </Fab>
       </Box>
       <LinearProgress
         variant="determinate"

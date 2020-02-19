@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { partition, isNil } from 'lodash';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
 import Box from '@material-ui/core/Box';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
@@ -37,15 +37,15 @@ const Intro = () => {
         Can you score 100%?
       </Typography>
       <Box py="3em">
-        <Button
-          variant="contained"
+        <Fab
+          variant="extended"
           color="primary"
           size="large"
           onClick={() => history.push('/quiz/1')}
-          endIcon={<PlayCircleFilledIcon />}
         >
-          Begin
-        </Button>
+          Begin&nbsp;
+          <PlayCircleFilledIcon />
+        </Fab>
       </Box>
       <LinearProgress
         variant="determinate"
