@@ -13,18 +13,21 @@ const initialState: IAppState = {
 
 function rootReducer(state = initialState, action: AnyAction) {
   if (action.type === SET_STATUS) {
-    return Object.assign({}, state, {
+    return {
+      ...state,
       status: action.payload,
       questions: action.payload === IStatus.INIT ? [] : state.questions,
-    });
+    };
   }
   if (action.type === ADD_QUESTIONS) {
-    return Object.assign({}, state, {
+    return {
+      ...state,
       questions: (state.questions as IQuestion[]).concat(action.payload),
-    });
+    };
   }
   if (action.type === SUBMIT_ANSWER) {
-    return Object.assign({}, state, {
+    return {
+      ...state,
       questions: state.questions.map((q: IQuestion) => {
         const isCurrentQuestion = q.question === action.payload.question;
         if (isCurrentQuestion && q.type === 'boolean') {
@@ -40,7 +43,7 @@ function rootReducer(state = initialState, action: AnyAction) {
         }
         return q;
       }),
-    });
+    };
   }
   return state;
 }
