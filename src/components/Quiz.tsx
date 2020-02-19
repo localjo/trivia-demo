@@ -46,7 +46,7 @@ const Quiz = () => {
   };
   return (
     <>
-      <Box py="1em" style={{ minHeight: '400px' }}>
+      <Box pb="1em" style={{ minHeight: '400px' }}>
         {questions.map((card, i) => {
           return (
             <Route key={i} exact path={`/quiz/${i + 1}`}>
@@ -59,7 +59,7 @@ const Quiz = () => {
                     classNames="question"
                     unmountOnExit
                   >
-                    <Box py="1em" key={i} className="question">
+                    <Box pb="1em" key={i} className="question">
                       <div className="category">
                         <Typography variant="h4" component="h2" color="primary">
                           <CategoryIcon color="secondary" /> {category}
