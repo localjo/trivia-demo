@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
-import { partition, isNil } from 'lodash';
+import partition from 'lodash/partition';
+import isNil from 'lodash/isNil';
 import ReactHtmlParser from 'react-html-parser';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';

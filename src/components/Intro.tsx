@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { partition, isNil } from 'lodash';
+import partition from 'lodash/partition';
+import isNil from 'lodash/isNil';
 import Typography from '@material-ui/core/Typography';
 import Fab from '@material-ui/core/Fab';
 import Box from '@material-ui/core/Box';
