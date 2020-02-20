@@ -1,4 +1,9 @@
-.question {
+.body {
+  /* Disables pull-to-refresh */
+  overscroll-behavior: contain;
+}
+
+question {
   position: absolute;
   left: 15px;
   right: 15px;
