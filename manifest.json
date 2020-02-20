@@ -1,6 +1,6 @@
 {
-  "short_name": "Trivia Challenge",
-  "name": "Trivia Challenge Demo",
+  "short_name": "Trivia",
+  "name": "Trivia Challenge",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +19,8 @@
     }
   ],
   "start_url": ".",
+  "scope": ".",
   "display": "standalone",
-  "theme_color": "#EEEEEE",
+  "theme_color": "#2D7FF9",
   "background_color": "#1E1E1E"
 }
