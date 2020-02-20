@@ -37,7 +37,7 @@ const App = () => {
       },
     },
     typography: {
-      fontFamily: ['Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'].join(
+      fontFamily: ['Neucha', '"Helvetica Neue"', 'Arial', 'sans-serif'].join(
         ','
       ),
     },
