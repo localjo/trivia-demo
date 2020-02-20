@@ -1,17 +1,18 @@
 import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IAppState, IQuestion, IStatus } from '../types';
 
+const defaultState: IAppState = {
+  status: IStatus.INIT,
+  questions: [],
+};
+
 const loadState = () => {
   try {
     const serializedState = localStorage.getItem('triviaState');
-    if (!serializedState)
-      return {
-        status: IStatus.INIT,
-        questions: [],
-      };
+    if (!serializedState) return defaultState;
     else return JSON.parse(serializedState);
   } catch (err) {
-    return undefined;
+    return defaultState;
   }
 };
 
