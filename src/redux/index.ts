@@ -1,10 +1,30 @@
 import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IAppState, IQuestion, IStatus } from '../types';
 
-const initialState: IAppState = {
-  status: IStatus.INIT,
-  questions: [],
+const loadState = () => {
+  try {
+    const serializedState = localStorage.getItem('triviaState');
+    if (!serializedState)
+      return {
+        status: IStatus.INIT,
+        questions: [],
+      };
+    else return JSON.parse(serializedState);
+  } catch (err) {
+    return undefined;
+  }
 };
+
+const saveState = (state: IAppState) => {
+  try {
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem('triviaState', serializedState);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const initialState: IAppState = loadState();
 
 const quizSlice = createSlice({
   name: 'quiz',
@@ -43,6 +63,9 @@ const quizSlice = createSlice({
 });
 
 export const store = configureStore({ reducer: quizSlice.reducer });
+store.subscribe(() => {
+  saveState(store.getState());
+});
 
 export const { setStatus, addQuestions, submitAnswer } = quizSlice.actions;
 export default quizSlice.reducer;
