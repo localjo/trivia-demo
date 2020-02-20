@@ -5,6 +5,13 @@ import { store } from './redux';
 import App from './App';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import WebFont from 'webfontloader';
+
+WebFont.load({
+  google: {
+    families: ['Roboto'],
+  },
+});
 
 ReactDOM.render(
   <Provider store={store}>
