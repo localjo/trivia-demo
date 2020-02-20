@@ -45,8 +45,7 @@ const App = () => {
     overrides: {
       MuiTypography: {
         h4: {
-          minHeight: '2.4em',
-          marginBottom: '0.5em',
+          minHeight: '2.7em',
         },
       },
       MuiCardContent: {

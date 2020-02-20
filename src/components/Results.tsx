@@ -37,7 +37,7 @@ const Results = () => {
       <Typography variant="h4" component="h2">
         You scored {correct.length} / {total}
       </Typography>
-      <Box py="1em">
+      <Box pb="1em">
         <Card
           variant="outlined"
           style={{ maxWidth: '600px', margin: '0 auto' }}
