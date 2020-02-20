@@ -1,3 +1,8 @@
+body {
+  /* Disables pull-to-refresh and swipe navigation */
+  overscroll-behavior: none;
+}
+
 .question {
   position: absolute;
   left: 15px;
