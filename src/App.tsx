@@ -15,6 +15,7 @@ import { addQuestions, setStatus } from './redux';
 import Intro from './components/Intro';
 import Quiz from './components/Quiz';
 import Results from './components/Results';
+import NotFound from './components/NotFound';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { IAppState, IStatus } from './types';
 
@@ -98,6 +99,7 @@ const App = () => {
                 )}
               </Route>
               <Route exact path="/results" component={Results} />
+              <Route component={NotFound} />
             </Switch>
           </Router>
         </Box>
