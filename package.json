@@ -60,6 +60,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-html-parser": "^2.0.1"
+    "@types/react-html-parser": "^2.0.1",
+    "cypress": "^4.2.0"
   }
 }
