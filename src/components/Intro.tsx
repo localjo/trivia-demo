@@ -27,7 +27,7 @@ const Intro = () => {
   return (
     <>
       <Typography variant="h4" component="h1" color="primary">
-        Welcome to the Triva Challenge!
+        Welcome to the Trivia Challenge!
       </Typography>
       <Box py="1em">
         <Typography variant="h5" component="p">
